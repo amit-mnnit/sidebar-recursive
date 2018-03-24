@@ -1,0 +1,23 @@
+html body{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    margin: 0;
+}
+ul li{
+    list-style:none;
+}
+.sidebar{
+    width: 500px;
+    background: #f1f0f0;
+    box-shadow: -2px 4px 9px 0 rgba(143, 142, 162, 0.3);
+}
+.sidebar-text{
+    padding: 10px;
+    font-size: 16px;
+}
+.sidebar-text:hover{
+    background-color: green;
+    color: #fff
+}
