@@ -1,1 +1,1 @@
-angular.module('amitApp', []);
+angular.module('sidebarApp', []);
