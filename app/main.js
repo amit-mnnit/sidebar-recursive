@@ -1,1 +1,2 @@
-angular.module('sidebarApp', []);
+
+angular.module('sideNavApp', []);
