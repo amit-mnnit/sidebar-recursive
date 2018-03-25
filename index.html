@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="sidebarApp">
+<html lang="en" ng-app="sideNavApp">
     <head>
         <link rel="stylesheet" href="app/sidebar/sidebar.css">
     </head>
     <body>
-        <div ng-controller="sidebarController" ng-include="'app/sidebar/sidebar.html'"></div>
+        <div ng-controller="SideNavController as vm" ng-include="'app/sidebar/sidebar.html'"></div>
         <script src="node_modules/angular/angular.min.js"></script>
         <script src="app/main.js"></script>
         <script src="app/sidebar/sidebar.controller.js"></script>
