@@ -1,78 +1,25 @@
 (function () {
-    var App = angular.module('amitApp');
-    App.controller('amitController', function ($rootScope, $scope) {
-        var dataFromServer = [
-            {
-                "Software Products": [
-                    {
-                        "Programming Languages": [
-                            "Java API",
-                            "Python API"
-                        ]
-                    },
-                    {
-                        "Documentation": [
-                            "Java Docs",
-                            "Python Docs",
-                            {
-                                "HTTP Docs": [
-                                    "REST Docs",
-                                    "SOAP Docs"
-                                ]
-                            }
-                        ]
-                    },
-                    "Try It!"
-                ]
-            },
-            {
-                "Cloud Products": [
-                    "SAAS",
-                    "PAAS",
-                    "IAAS"
-                ]
-            },
-            {
-                "About Us": [
-                    {
-                        "Locations": [
-                            {
-                                "India": [
-                                    "Delhi",
-                                    {
-                                        "Mumbai": [
-                                            "Lower Parel",
-                                            "Goregaon"
-                                        ]
-                                    },
-                                    "Bangalore"
-                                ]
-                            },
-                            "USA",
-                            "Singapore"
-                        ]
-                    },
-                    "Founders",
-                    "Advisors"
-                ]
-            },
-            "Contact Us"
+    var App = angular.module('sideNavApp');
+    App.controller('SideNavController', function ($rootScope, $scope) {
+        var sideMenuListArray = [
         ];
         var tmp = [];
         function setData(data, tmp) {
-            for (var i = 0; i < data.length; i++) {
-                if (typeof data[i] == "string") {
-                    tmp.push({ name: data[i], child: [] });
-                }
-                else {
-                    var key = Object.keys(data[i])[0];
-                    tmp.push({ name: key, child: [] });
-                    setData(data[i][key], tmp[tmp.length - 1].child)
-                }
-            }
+                data.forEach(function(value){
+                    if (typeof value == "string") {
+                        tmp.push({ name: value, child: [] });
+                    }
+                    else {
+                        var key = Object.keys(value)[0];
+                        tmp.push({ name: key, child: [] });
+                        setData(value[key], tmp[tmp.length - 1].child)
+                    }
+                })
+            
         }
-        setData(dataFromServer, tmp);
-        $scope.menu = tmp;
+        setData(sideMenuListArray, tmp);
+        this.menu = tmp;
+        
     });
 
     App.directive("navigation", ['$compile', function ($compile) {
